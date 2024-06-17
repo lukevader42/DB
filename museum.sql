@@ -1,5 +1,5 @@
 Artifacts(
-	ID
+	ID,
 	title
 	description
 	value
