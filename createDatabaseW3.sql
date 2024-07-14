@@ -1,4 +1,14 @@
 -- Läuft ohne Fehler durch
+DROP TABLE Artifacts;
+DROP TABLE ArtifactPaintings;
+DROP TABLE ArtifactSculptures;
+DROP TABLE Artists;
+DROP TABLE Collections;
+DROP TABLE Exhibitions;
+DROP TABLE Advertisements;
+DROP TABLE Media;
+DROP TABLE InfluencedBy;
+DROP TABLE ExhibitedAt;
 
 CREATE TABLE Artifacts (
     id INT PRIMARY KEY,
@@ -7,7 +17,8 @@ CREATE TABLE Artifacts (
     value DECIMAL(42,2),
     year INT,
     artistId INT,
-    collectionTitle VARCHAR(420)
+    collectionTitle VARCHAR(420),
+    collectionDate VARCHAR(420)
 );
 
 CREATE TABLE ArtifactPaintings (
@@ -36,9 +47,9 @@ CREATE TABLE Collections (
 
 CREATE TABLE Exhibitions (
     title VARCHAR(42) PRIMARY KEY,
-    topic VARCHAR(42) NOT NULL,
-    room VARCHAR(42) NOT NULL,
-    startDate DATE NOT NULL,
+    topic VARCHAR(42),
+    room VARCHAR(42),
+    startDate DATE,
     endDate DATE
 );
 
@@ -49,6 +60,11 @@ CREATE TABLE Advertisements (
     cost DECIMAL(10,2),
     duration INT,
     PRIMARY KEY (exhibitionTitle, date, mediumName)
+);
+
+CREATE TABLE Media (
+    name VARCHAR(42) PRIMARY KEY,
+    type VARCHAR(42)
 );
 
 CREATE TABLE InfluencedBy (
